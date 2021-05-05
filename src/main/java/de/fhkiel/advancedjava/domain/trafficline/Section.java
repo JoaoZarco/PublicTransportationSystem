@@ -6,7 +6,6 @@ import de.fhkiel.advancedjava.domain.common.TypeDomainService;
 import de.fhkiel.advancedjava.domain.stop.SectionStop;
 import de.fhkiel.advancedjava.domain.stop.Stop;
 import de.fhkiel.advancedjava.exception.section.InvalidSectionStops;
-import de.fhkiel.advancedjava.exception.stop.InvalidTypeException;
 import org.neo4j.ogm.annotation.*;
 
 import java.util.Optional;

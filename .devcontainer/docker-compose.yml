@@ -1,0 +1,28 @@
+version: "3.7"
+services: 
+    public-transportation-system-neo4j:
+        image: neo4j:4.0.5
+        container_name: neo4j
+        ports: 
+            - 7474:7474
+            - 7687:7687
+        volumes: 
+            - $HOME/neo4j/data:/data
+        environment: 
+            NEO4J_AUTH: neo4j/12345678
+            NEO4JLABS_PLUGINS: '["graph-data-science"]'
+        restart: always
+    public-transportation-system-api:
+        depends_on: 
+            - public-transportation-system-neo4j
+        build: 
+            context : ../
+            dockerfile: ./.devcontainer/Dockerfile
+        container_name: api-container
+        ports : 
+            - 8080:8080
+        environment: 
+            NEO4J_URI : public-transportation-system-neo4j
+            NEO4J_USER : neo4j
+            NEO4J_PASSWORD : 12345678
+        restart : always

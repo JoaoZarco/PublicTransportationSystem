@@ -1,15 +1,15 @@
+
 plugins {
     id 'org.springframework.boot' version '2.2.6.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'info.solidsoft.pitest' version '1.5.1'
     id 'java'
-    id 'idea'
 }
 
 group = 'de.fhkiel.advancedjava'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '15'
-targetCompatibility = '15'
+sourceCompatibility = '13'
+targetCompatibility = '13'
 
 configurations {
     developmentOnly
@@ -29,16 +29,15 @@ pitest {
 repositories {
     mavenLocal()
     mavenCentral()
-    jcenter()
     google()
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-neo4j'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compile group: 'com.opencsv', name: 'opencsv', version: '5.1'
+    implementation group: 'com.opencsv', name: 'opencsv', version: '5.1'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    compile group: 'org.apache.commons', name: 'commons-text', version: '1.8'
+    implementation group: 'org.apache.commons', name: 'commons-text', version: '1.8'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -47,9 +46,8 @@ dependencies {
     testImplementation 'org.mockito:mockito-junit-jupiter:3.3.+'
     testImplementation 'org.hamcrest:hamcrest-library:2.2'
 
-    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
-    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
-
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 }
 
 test {
@@ -58,3 +56,5 @@ test {
         events 'PASSED', 'FAILED', 'SKIPPED'
     }
 }
+
+
